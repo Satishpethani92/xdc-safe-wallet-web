@@ -10,10 +10,10 @@ const lightPalette = {
     light: '#636669',
   },
   secondary: {
-    dark: '#0FDA6D',
-    main: '#12FF80',
-    light: '#B0FFC9',
-    background: '#EFFFF4',
+    dark: '#2f5cdb',
+    main: '#4878ff',
+    light: '#abc1ff',
+    background: '#eff3ff',
   },
   border: {
     main: '#A1A3A7',
@@ -27,9 +27,9 @@ const lightPalette = {
     background: '#FFE6EA',
   },
   success: {
-    dark: '#028D4C',
-    main: '#00B460',
-    light: '#72F5B8',
+    dark: '#021b8d',
+    main: '#002db4',
+    light: '#729ef5',
     background: '#EFFAF1',
   },
   info: {
@@ -48,7 +48,7 @@ const lightPalette = {
     default: '#F4F4F4',
     main: '#F4F4F4',
     paper: '#FFFFFF',
-    light: '#EFFFF4',
+    light: '#eff3ff',
   },
   backdrop: {
     main: '#636669',

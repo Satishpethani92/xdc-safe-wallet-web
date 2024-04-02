@@ -235,8 +235,8 @@ const FirstSteps = () => {
                   y2="22.621"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop stopColor="#5FDDFF" />
-                  <stop offset="1" stopColor="#12FF80" />
+                  <stop stopColor="#5fa7ff" />
+                  <stop offset="1" stopColor="#4878ff" />
                 </linearGradient>
               </defs>
             </svg>

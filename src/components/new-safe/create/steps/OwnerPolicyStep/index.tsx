@@ -111,9 +111,9 @@ const OwnerPolicyStep = ({
           </Button>
           <Box p={2} mt={3} sx={{ backgroundColor: 'background.main', borderRadius: '8px' }}>
             <Typography variant="subtitle1" fontWeight={700} display="inline-flex" alignItems="center" gap={1}>
-              {'XDC Safe{Wallet}'} mobile signer key (optional){' '}
+              {'XDC Safe'} mobile signer key (optional){' '}
               <Tooltip
-                title="The XDC Safe{Wallet} mobile app allows for the generation of signer keys that you can add to this or an existing Safe Account."
+                title="The XDC Safe mobile app allows for the generation of signer keys that you can add to this or an existing Safe Account."
                 arrow
                 placement="top"
               >

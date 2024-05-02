@@ -4,7 +4,6 @@ import { useCurrentChain } from '@/hooks/useChains'
 import useWallet from '@/hooks/wallets/useWallet'
 import { Card, Grid, Typography } from '@mui/material'
 import type { ReactElement } from 'react'
-import SafeLogo from '@/public/images/logo-no-text.svg'
 
 import css from '@/components/new-safe/create/OverviewWidget/styles.module.css'
 
@@ -23,7 +22,14 @@ const OverviewWidget = ({ safeName }: { safeName: string }): ReactElement | null
     <Grid item xs={12}>
       <Card className={css.card}>
         <div className={css.header}>
-          <SafeLogo alt="Safe logo" width={LOGO_DIMENSIONS} height={LOGO_DIMENSIONS} />
+          <span
+            style={{
+              fontSize: '28px',
+              fontWeight: 'bold',
+            }}
+          >
+            XDC SAFE
+          </span>
           <Typography variant="h4">Your Safe Account preview</Typography>
         </div>
         {wallet ? (

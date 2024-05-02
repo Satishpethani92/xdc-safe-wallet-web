@@ -16,7 +16,7 @@ const NotificationsPage: NextPage = () => {
   return (
     <>
       <Head>
-        <title>{'XDC Safe{Wallet} – Settings – Notifications'}</title>
+        <title>{'XDC Safe – Settings – Notifications'}</title>
       </Head>
 
       <SettingsHeader />

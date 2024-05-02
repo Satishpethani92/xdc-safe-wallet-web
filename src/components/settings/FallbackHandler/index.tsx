@@ -33,7 +33,7 @@ export const FallbackHandler = (): ReactElement | null => {
 
   const warning = !hasFallbackHandler ? (
     <>
-      The {'XDC Safe{Wallet}'} may not work correctly as no fallback handler is currently set.
+      The {'XDC Safe'} may not work correctly as no fallback handler is currently set.
       {txBuilder && (
         <>
           {' '}

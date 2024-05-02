@@ -42,9 +42,9 @@ export const createOnboard = (
     },
 
     appMetadata: {
-      name: 'XDC Safe{Wallet}',
+      name: 'XDC Safe',
       icon: location.origin + '/images/logo-round.svg',
-      description: 'XDC Safe{Wallet} – smart contract wallet for Xinfin',
+      description: 'XDC Safe – smart contract wallet for Xinfin',
     },
 
     connect: {

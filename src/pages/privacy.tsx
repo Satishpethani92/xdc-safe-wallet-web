@@ -166,8 +166,8 @@ const SafePrivacyPolicy = () => (
         &nbsp;released under LGPL-3.0.
       </li>
       <li>
-        &ldquo;{'XDC Safe{Wallet}'}&rdquo; refers to a web-based graphical user interface for Safe Accounts as well as a
-        mobile application on Android and iOS.
+        &ldquo;{'XDC Safe'}&rdquo; refers to a web-based graphical user interface for Safe Accounts as well as a mobile
+        application on Android and iOS.
       </li>
       <li>
         &ldquo;Safe Account Transaction&rdquo; is a Transaction of a Safe Account, authorized by a user, typically via
@@ -210,10 +210,10 @@ const SafePrivacyPolicy = () => (
       BLOCKCHAIN WILL BECOME PUBLICLY AVAILABLE
     </p>
     <h3 id="section-4">4. How We Use Personal Data</h3>
-    <h4>4.1. When visiting our website and using {'XDC Safe{Wallet}'}</h4>
+    <h4>4.1. When visiting our website and using {'XDC Safe'}</h4>
     <p>
-      When visiting our website or using {'XDC Safe{Wallet}'}, we may collect and process personal data. The data will
-      be stored in different instances
+      When visiting our website or using {'XDC Safe'}, we may collect and process personal data. The data will be stored
+      in different instances
     </p>
     <ol>
       <li>
@@ -249,7 +249,7 @@ const SafePrivacyPolicy = () => (
     <ol start={4}>
       <li>
         When you create a Profile for an existing Safe Account for the purpose of allowing you to view and use them in
-        the {'XDC Safe{Wallet}'}, we process your
+        the {'XDC Safe'}, we process your
         <ol>
           <li>public Wallet address, </li>
           <li>Safe Account balance, </li>
@@ -294,7 +294,7 @@ const SafePrivacyPolicy = () => (
     <ol start={8}>
       <li>
         When we collect relevant&nbsp;data&nbsp;from the Blockchain to display context information in the
-        {`XDC Safe{Wallet}`}
+        {`XDC Safe`}
         we process:
         <ol>
           <li>your public Wallet address, </li>
@@ -412,9 +412,8 @@ const SafePrivacyPolicy = () => (
       <li>range of managed funds</li>
     </ol>
     <p>
-      In addition, we may take a recording of you while testing {'XDC Safe{Wallet}'} for internal and external use. The
-      basis for this collection and processing is our legitimate business interest in monitoring and improving our
-      services.
+      In addition, we may take a recording of you while testing {'XDC Safe'} for internal and external use. The basis
+      for this collection and processing is our legitimate business interest in monitoring and improving our services.
     </p>
     <p>
       The lawful basis for this processing is your consent as provided before participating in user experience research.
@@ -575,7 +574,7 @@ const SafePrivacyPolicy = () => (
     </p>
     <h4>5.4. Mobile app stores</h4>
     <p>
-      {'XDC Safe{Wallet}'} mobile apps are distributed via{' '}
+      {'XDC Safe'} mobile apps are distributed via{' '}
       <a href="https://www.apple.com/app-store/" target="_blank" rel="noreferrer">
         Apple AppStore
       </a>
@@ -589,10 +588,10 @@ const SafePrivacyPolicy = () => (
     </p>
     <h4>5.5. Fingerprint/Touch ID/ Face ID</h4>
     <p>
-      We enable the user to unlock the {'XDC Safe{Wallet}'} mobile app via biometrics information (touch ID or face ID).
-      This is a feature of the operating system. We do not store any of this data. Instead, the API of the operating
-      system is used to validate the user input. If you have any further questions you should consult with your
-      preferred mobile device provider or manufacturer.
+      We enable the user to unlock the {'XDC Safe'} mobile app via biometrics information (touch ID or face ID). This is
+      a feature of the operating system. We do not store any of this data. Instead, the API of the operating system is
+      used to validate the user input. If you have any further questions you should consult with your preferred mobile
+      device provider or manufacturer.
     </p>
     <h4>5.6. Google Firebase</h4>
     <p>
@@ -713,8 +712,8 @@ const SafePrivacyPolicy = () => (
         Spindl
       </a>
       , a measurement and attribution solution for web3 that assists us in comprehending how users interact with
-      different decentralized applications and our app and to enhance your experience with {`XDC Safe{Wallet}`}. For
-      enhanced privacy, data is stored for a period of 7 days after which it is securely deleted.
+      different decentralized applications and our app and to enhance your experience with {`XDC Safe`}. For enhanced
+      privacy, data is stored for a period of 7 days after which it is securely deleted.
     </p>
     <h3 id="section-6">6. Sharing Your Personal Data</h3>
     <p>
@@ -995,7 +994,7 @@ const PrivacyPolicy: NextPage = () => {
   return (
     <>
       <Head>
-        <title>{'XDC Safe{Wallet} – Privacy policy'}</title>
+        <title>{'XDC Safe – Privacy policy'}</title>
       </Head>
 
       <main>{IS_OFFICIAL_HOST && <SafePrivacyPolicy />}</main>

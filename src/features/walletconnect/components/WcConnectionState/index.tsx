@@ -2,7 +2,6 @@ import { SvgIcon, Typography } from '@mui/material'
 import classNames from 'classnames'
 import type { CoreTypes } from '@walletconnect/types'
 import SafeAppIconCard from '@/components/safe-apps/SafeAppIconCard'
-import SafeLogo from '@/public/images/logo-no-text.svg'
 import ConnectionDots from '@/public/images/common/connection-dots.svg'
 import css from './styles.module.css'
 
@@ -13,7 +12,14 @@ const WcConnectionState = ({ metadata, isDelete }: { metadata?: CoreTypes.Metada
   return (
     <div className={css.container}>
       <div>
-        <SafeLogo alt="Safe logo" width="28px" height="28px" />
+        <span
+          style={{
+            fontSize: '28px',
+            fontWeight: 'bold',
+          }}
+        >
+          XDC SAFE
+        </span>
 
         <SvgIcon
           component={ConnectionDots}

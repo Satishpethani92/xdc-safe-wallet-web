@@ -32,7 +32,7 @@ const Appearance: NextPage = () => {
   return (
     <>
       <Head>
-        <title>{'XDC Safe{Wallet} – Settings – Appearance'}</title>
+        <title>{'XDC Safe – Settings – Appearance'}</title>
       </Head>
 
       <SettingsHeader />

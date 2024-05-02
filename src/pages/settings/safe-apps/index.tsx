@@ -9,7 +9,7 @@ const SafeAppsPermissionsPage: NextPage = () => {
   return (
     <>
       <Head>
-        <title>{'XDC Safe{Wallet} – Settings – Safe Apps'}</title>
+        <title>{'XDC Safe – Settings – Safe Apps'}</title>
       </Head>
 
       <SettingsHeader />

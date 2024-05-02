@@ -18,7 +18,7 @@ const Setup: NextPage = () => {
   return (
     <>
       <Head>
-        <title>{'XDC Safe{Wallet} – Settings – Setup'}</title>
+        <title>{'XDC Safe – Settings – Setup'}</title>
       </Head>
 
       <SettingsHeader />

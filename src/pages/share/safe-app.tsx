@@ -11,7 +11,7 @@ const ShareSafeApp = () => {
   return (
     <>
       <Head>
-        <title>{`XDC Safe{Wallet} – Safe Apps`}</title>
+        <title>{`XDC Safe – Safe Apps`}</title>
       </Head>
 
       <main>

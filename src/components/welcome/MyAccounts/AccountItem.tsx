@@ -31,10 +31,13 @@ const AccountItem = ({ onLinkClick, chainId, address, ...rest }: AccountItemProp
   const chain = useAppSelector((state) => selectChainById(state, chainId))
   const safeAddress = useSafeAddress()
   const currChainId = useChainId()
+  console.log(currChainId, 'currChainId')
   const router = useRouter()
   const isCurrentSafe = chainId === currChainId && sameAddress(safeAddress, address)
   const isWelcomePage = router.pathname === AppRoutes.welcome.accounts
   const isSingleTxPage = router.pathname === AppRoutes.transactions.tx
+  const xinfinChainId = ['50', '51']
+  const addressWithPrefix = xinfinChainId.includes(currChainId) ? address.replace('0x', 'xdc') : address
 
   const trackingLabel = isWelcomePage ? OVERVIEW_LABELS.login_page : OVERVIEW_LABELS.sidebar
 
@@ -77,7 +80,7 @@ const AccountItem = ({ onLinkClick, chainId, address, ...rest }: AccountItemProp
             )}
             {chain?.shortName}:
             <Typography color="var(--color-primary-light)" fontSize="inherit" component="span">
-              {shortenAddress(address)}
+              {shortenAddress(addressWithPrefix)}
             </Typography>
           </Typography>
 
@@ -87,7 +90,7 @@ const AccountItem = ({ onLinkClick, chainId, address, ...rest }: AccountItemProp
         </Link>
       </Track>
 
-      <SafeListContextMenu name={name} address={address} chainId={chainId} />
+      <SafeListContextMenu name={name} address={addressWithPrefix} chainId={chainId} />
     </ListItemButton>
   )
 }

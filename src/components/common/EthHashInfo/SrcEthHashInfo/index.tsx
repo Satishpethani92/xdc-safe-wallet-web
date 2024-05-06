@@ -53,11 +53,17 @@ const SrcEthHashInfo = ({
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'))
   const identicon = <Identicon address={address} size={avatarSize} />
   const shouldCopyPrefix = shouldPrefix && copyPrefix
+  const xinfinPrefixes = ['xdc', 'txdc']
+  const addressWithPrefix = xinfinPrefixes.includes(prefix) ? address.replace('0x', 'xdc') : address
 
   const addressElement = (
     <>
       {showPrefix && shouldPrefix && prefix && <b>{prefix}:</b>}
-      <span>{shortAddress || isMobile ? shortenAddress(address) : address}</span>
+      {showPrefix && shouldPrefix && prefix ? (
+        <span>{shortAddress || isMobile ? shortenAddress(addressWithPrefix) : addressWithPrefix}</span>
+      ) : (
+        <span>{shortAddress || isMobile ? shortenAddress(address) : address}</span>
+      )}
     </>
   )
 
@@ -86,7 +92,12 @@ const SrcEthHashInfo = ({
         <div className={css.addressContainer}>
           <Box fontWeight="inherit" fontSize="inherit" overflow="hidden" textOverflow="ellipsis">
             {copyAddress ? (
-              <CopyAddressButton prefix={prefix} address={address} copyPrefix={shouldCopyPrefix} trusted={trusted}>
+              <CopyAddressButton
+                prefix={prefix}
+                address={addressWithPrefix}
+                copyPrefix={shouldCopyPrefix}
+                trusted={trusted}
+              >
                 {addressElement}
               </CopyAddressButton>
             ) : (
@@ -95,7 +106,12 @@ const SrcEthHashInfo = ({
           </Box>
 
           {showCopyButton && (
-            <CopyAddressButton prefix={prefix} address={address} copyPrefix={shouldCopyPrefix} trusted={trusted} />
+            <CopyAddressButton
+              prefix={prefix}
+              address={addressWithPrefix}
+              copyPrefix={shouldCopyPrefix}
+              trusted={trusted}
+            />
           )}
 
           {hasExplorer && ExplorerButtonProps && (

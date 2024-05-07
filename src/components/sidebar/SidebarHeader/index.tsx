@@ -31,22 +31,26 @@ import EnvHintButton from '@/components/settings/EnvironmentVariables/EnvHintBut
 import useSafeAddress from '@/hooks/useSafeAddress'
 import ExplorerButton from '@/components/common/ExplorerButton'
 import CopyTooltip from '@/components/common/CopyTooltip'
+import useChainId from '@/hooks/useChainId'
 
 const SafeHeader = (): ReactElement => {
   const currency = useAppSelector(selectCurrency)
   const { balances } = useVisibleBalances()
   const safeAddress = useSafeAddress()
   const { safe } = useSafeInfo()
+  const currChainId = useChainId()
   const { threshold, owners } = safe
   const chain = useCurrentChain()
   const settings = useAppSelector(selectSettings)
+  const xinfinChainId = ['50', '51']
+  const addressWithPrefix = xinfinChainId.includes(currChainId) ? safeAddress.replace('0x', 'xdc') : safeAddress
 
   const fiatTotal = useMemo(
     () => (balances.fiatTotal ? formatCurrency(balances.fiatTotal, currency) : ''),
     [currency, balances.fiatTotal],
   )
 
-  const addressCopyText = settings.shortName.copy && chain ? `${chain.shortName}:${safeAddress}` : safeAddress
+  const addressCopyText = settings.shortName.copy && chain ? `${chain.shortName}:${addressWithPrefix}` : safeAddress
 
   const blockExplorerLink = chain ? getBlockExplorerLink(chain, safeAddress) : undefined
 

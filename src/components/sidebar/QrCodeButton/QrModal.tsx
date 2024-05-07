@@ -7,14 +7,18 @@ import QRCode from '@/components/common/QRCode'
 import EthHashInfo from '@/components/common/EthHashInfo'
 import { useAppDispatch, useAppSelector } from '@/store'
 import { selectSettings, setQrShortName } from '@/store/settingsSlice'
+import useChainId from '@/hooks/useChainId'
 
 const QrModal = ({ onClose }: { onClose: () => void }): ReactElement => {
   const safeAddress = useSafeAddress()
   const chain = useCurrentChain()
   const settings = useAppSelector(selectSettings)
+  const currChainId = useChainId()
   const dispatch = useAppDispatch()
+  const xinfinChainId = ['50', '51']
+  const addressWithPrefix = xinfinChainId.includes(currChainId) ? safeAddress.replace('0x', 'xdc') : safeAddress
   const qrPrefix = settings.shortName.qr ? `${chain?.shortName}:` : ''
-  const qrCode = `${qrPrefix}${safeAddress}`
+  const qrCode = `${qrPrefix}${addressWithPrefix}`
   const chainName = chain?.chainName || ''
   const nativeToken = chain?.nativeCurrency.symbol || ''
 

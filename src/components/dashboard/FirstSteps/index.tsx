@@ -20,6 +20,7 @@ import CircleOutlinedIcon from '@mui/icons-material/CircleOutlined'
 import CheckCircleRoundedIcon from '@mui/icons-material/CheckCircleRounded'
 import CheckCircleOutlineRoundedIcon from '@mui/icons-material/CheckCircleOutlineRounded'
 import css from './styles.module.css'
+import useChainId from '@/hooks/useChainId'
 
 const calculateProgress = (items: boolean[]) => {
   const totalNumberOfItems = items.length
@@ -64,11 +65,15 @@ const StatusCard = ({
 const AddFundsWidget = ({ completed }: { completed: boolean }) => {
   const [open, setOpen] = useState<boolean>(false)
   const { safeAddress } = useSafeInfo()
+  const currChainId = useChainId()
   const chain = useCurrentChain()
   const dispatch = useAppDispatch()
   const settings = useAppSelector(selectSettings)
+  const xinfinChainId = ['50', '51']
+  const addressWithPrefix = xinfinChainId.includes(currChainId) ? safeAddress.replace('0x', 'xdc') : safeAddress
+
   const qrPrefix = settings.shortName.qr ? `${chain?.shortName}:` : ''
-  const qrCode = `${qrPrefix}${safeAddress}`
+  const qrCode = `${qrPrefix}${addressWithPrefix}`
 
   const title = 'Add native assets'
   const content = `Receive ${chain?.nativeCurrency.name} to start interacting with your account.`

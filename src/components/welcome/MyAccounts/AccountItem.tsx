@@ -31,7 +31,6 @@ const AccountItem = ({ onLinkClick, chainId, address, ...rest }: AccountItemProp
   const chain = useAppSelector((state) => selectChainById(state, chainId))
   const safeAddress = useSafeAddress()
   const currChainId = useChainId()
-  console.log(currChainId, 'currChainId')
   const router = useRouter()
   const isCurrentSafe = chainId === currChainId && sameAddress(safeAddress, address)
   const isWelcomePage = router.pathname === AppRoutes.welcome.accounts

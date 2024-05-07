@@ -6,14 +6,19 @@ import useSafeAddress from '@/hooks/useSafeAddress'
 import { useAppDispatch, useAppSelector } from '@/store'
 import { selectSettings, setQrShortName } from '@/store/settingsSlice'
 import BuyCryptoButton from '@/components/common/BuyCryptoButton'
+import useChainId from '@/hooks/useChainId'
 
 const AddFundsCTA = () => {
   const safeAddress = useSafeAddress()
   const chain = useCurrentChain()
+  const currChainId = useChainId()
   const dispatch = useAppDispatch()
   const settings = useAppSelector(selectSettings)
+  const xinfinChainId = ['50', '51']
+  const addressWithPrefix = xinfinChainId.includes(currChainId) ? safeAddress.replace('0x', 'xdc') : safeAddress
+
   const qrPrefix = settings.shortName.qr ? `${chain?.shortName}:` : ''
-  const qrCode = `${qrPrefix}${safeAddress}`
+  const qrCode = `${qrPrefix}${addressWithPrefix}`
 
   return (
     <Paper>

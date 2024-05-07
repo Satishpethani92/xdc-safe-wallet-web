@@ -36,8 +36,11 @@ const AddressBookInput = ({ name, canAdd, ...props }: AddressInputProps & { canA
   )
 
   const customFilterOptions = (options: any, state: any) => {
+    let updatedAddress = addressValue
+
+    updatedAddress = addressValue.startsWith('xdc') ? addressValue.replace('xdc', '0x') : addressValue
     // Don't show suggestions from the address book once a valid address has been entered.
-    if (isValidAddress(addressValue)) return []
+    if (isValidAddress(updatedAddress)) return []
     return abFilterOptions(options, state)
   }
 
@@ -66,7 +69,11 @@ const AddressBookInput = ({ name, canAdd, ...props }: AddressInputProps & { canA
             freeSolo
             options={addressBookEntries}
             onChange={(_, value) => (typeof value === 'string' ? field.onChange(value) : field.onChange(value.label))}
-            onInputChange={(_, value) => setValue(name, value)}
+            onInputChange={(_, value) => {
+              let updatedValue = value
+              updatedValue = value.startsWith('xdc') ? value.replace('xdc', '0x') : value
+              return setValue(name, updatedValue)
+            }}
             filterOptions={customFilterOptions}
             componentsProps={{
               paper: {

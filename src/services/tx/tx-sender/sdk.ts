@@ -3,14 +3,14 @@ import type Safe from '@safe-global/protocol-kit'
 import { EthersAdapter, SigningMethod } from '@safe-global/protocol-kit'
 import type { JsonRpcSigner } from 'ethers'
 import { ethers } from 'ethers'
-import { isWalletRejection, isHardwareWallet, isWalletConnect } from '@/utils/wallets'
+import { isWalletRejection, isWalletConnect } from '@/utils/wallets'
 import { OperationType, type SafeTransaction } from '@safe-global/safe-core-sdk-types'
 import type { SafeInfo } from '@safe-global/safe-gateway-typescript-sdk'
 import { SAFE_FEATURES } from '@safe-global/protocol-kit/dist/src/utils/safeVersions'
 import { hasSafeFeature } from '@/utils/safe-versions'
 import { createWeb3 } from '@/hooks/wallets/web3'
 import { toQuantity } from 'ethers'
-import { connectWallet, getConnectedWallet } from '@/hooks/wallets/useOnboard'
+import { getConnectedWallet } from '@/hooks/wallets/useOnboard'
 import { type OnboardAPI } from '@web3-onboard/core'
 import type { ConnectedWallet } from '@/hooks/wallets/useOnboard'
 import { asError } from '@/services/exceptions/utils'
@@ -33,13 +33,6 @@ export const switchWalletChain = async (onboard: OnboardAPI, chainId: string): P
   // Onboard incorrectly returns WalletConnect's chainId, so it needs to be switched unconditionally
   if (currentWallet.chainId === chainId && !isWalletConnect(currentWallet)) {
     return currentWallet
-  }
-
-  // Hardware wallets cannot switch chains
-  if (isHardwareWallet(currentWallet)) {
-    await onboard.disconnectWallet({ label: currentWallet.label })
-    const wallets = await connectWallet(onboard, { autoSelect: currentWallet.label })
-    return wallets ? getConnectedWallet(wallets) : null
   }
 
   // Onboard doesn't update immediately and otherwise returns a stale wallet if we directly get its state

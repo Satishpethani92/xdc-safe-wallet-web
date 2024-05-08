@@ -9,7 +9,6 @@ import packageJson from '../../../../package.json'
 import { logError } from '@/services/exceptions'
 import ErrorCodes from '@/services/exceptions/ErrorCodes'
 import { checksumAddress } from '@/utils/addresses'
-import { isLedger } from '@/utils/wallets'
 import { createWeb3 } from '@/hooks/wallets/web3'
 import type { ConnectedWallet } from '@/hooks/wallets/useOnboard'
 
@@ -110,7 +109,7 @@ export const getRegisterDevicePayload = async ({
   })
 
   const web3 = createWeb3(wallet.provider)
-  const isLedgerWallet = isLedger(wallet)
+  const isLedgerWallet = false
 
   // If uuid is not provided a new device will be created.
   // If a uuid for an existing Safe is provided the FirebaseDevice will be updated with all the new data provided.

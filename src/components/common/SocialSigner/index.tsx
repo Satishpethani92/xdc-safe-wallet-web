@@ -11,7 +11,6 @@ import Track from '@/components/common/Track'
 import { CREATE_SAFE_EVENTS } from '@/services/analytics'
 import { MPC_WALLET_EVENTS } from '@/services/analytics/events/mpcWallet'
 import { isSocialLoginWallet } from '@/services/mpc/SocialLoginModule'
-import { CGW_NAMES } from '@/hooks/wallets/consts'
 import { type ChainInfo } from '@safe-global/safe-gateway-typescript-sdk'
 import madProps from '@/utils/mad-props'
 import { asError } from '@/services/exceptions/utils'
@@ -19,9 +18,7 @@ import ErrorMessage from '@/components/tx/ErrorMessage'
 import { open } from '@/services/mpc/PasswordRecoveryModal'
 
 export const _getSupportedChains = (chains: ChainInfo[]) => {
-  return chains
-    .filter((chain) => CGW_NAMES.SOCIAL_LOGIN && !chain.disabledWallets.includes(CGW_NAMES.SOCIAL_LOGIN))
-    .map((chainConfig) => chainConfig.chainName)
+  return chains.map((chainConfig) => chainConfig.chainName)
 }
 
 type SocialSignerLoginProps = {

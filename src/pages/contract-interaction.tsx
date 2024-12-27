@@ -30,7 +30,7 @@ const ContractInteraction: NextPage = () => {
   const [pendingSafe] = usePendingSafe()
   const wallet = useWallet()
 
-  if (!pendingSafe?.safeAddress) return null
+  // if (!pendingSafe?.safeAddress) return null
 
   const formatToValidJson = (input: string) => {
     // Handle empty or whitespace-only input
@@ -107,7 +107,7 @@ const ContractInteraction: NextPage = () => {
       <CardContent>
         <Box sx={{ mb: 1 }}>
           <Typography fontWeight="600">Smart-contract</Typography>
-          {pendingSafe.safeAddress && (
+          {pendingSafe?.safeAddress && (
             <EthHashInfo
               address={pendingSafe.safeAddress}
               hasExplorer

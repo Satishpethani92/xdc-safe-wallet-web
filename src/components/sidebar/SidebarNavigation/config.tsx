@@ -8,6 +8,7 @@ import ABIcon from '@/public/images/sidebar/address-book.svg'
 import AppsIcon from '@/public/images/apps/apps-icon.svg'
 import SettingsIcon from '@/public/images/sidebar/settings.svg'
 import { SvgIcon } from '@mui/material'
+import CodeIcon from '@/public/images/apps/code-icon.svg'
 
 export type NavItem = {
   label: string
@@ -40,6 +41,11 @@ export const navItems: NavItem[] = [
     label: 'Apps',
     icon: <SvgIcon component={AppsIcon} inheritViewBox />,
     href: AppRoutes.apps.index,
+  },
+  {
+    label: 'Contract interaction',
+    icon: <SvgIcon component={CodeIcon} inheritViewBox />,
+    href: AppRoutes.interaction,
   },
   {
     label: 'Settings',

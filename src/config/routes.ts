@@ -7,6 +7,7 @@ export const AppRoutes = {
   index: '/',
   imprint: '/imprint',
   home: '/home',
+  interaction: '/contract-interaction',
   cookie: '/cookie',
   addressBook: '/address-book',
   addOwner: '/addOwner',

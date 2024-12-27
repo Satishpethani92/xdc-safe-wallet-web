@@ -15,22 +15,23 @@ import {
 import EthHashInfo from '@/components/common/EthHashInfo'
 import { usePendingSafe } from '@/components/new-safe/create/steps/StatusStep/usePendingSafe'
 import type { ChangeEvent } from 'react'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import useWallet from '@/hooks/wallets/useWallet'
 import { InfoOutlined } from '@mui/icons-material'
 import { isAddress, type JsonFragment } from 'ethers'
 import ContractFunctions from '@/components/contract-interaction/ContractFunctions'
+import { useSearchParams } from 'next/navigation'
 
 const ContractInteraction: NextPage = () => {
   const [abiString, setAbiString] = useState('')
   const [isAbiError, setIsAbiError] = useState<boolean>(false)
   const [abiErrorMessage, setAbiErrorMessage] = useState<string>('')
   const [contractAddress, setContractAddress] = useState<string>('')
+  const [safeAddress, setSafeAddress] = useState<string>('')
   const [abiJsonData, setAbiJsonData] = useState<JsonFragment[]>([])
   const [pendingSafe] = usePendingSafe()
   const wallet = useWallet()
-
-  // if (!pendingSafe?.safeAddress) return null
+  const params = useSearchParams()
 
   const formatToValidJson = (input: string) => {
     // Handle empty or whitespace-only input
@@ -102,14 +103,23 @@ const ContractInteraction: NextPage = () => {
     }
   }
 
+  useEffect(() => {
+    if (params !== undefined) {
+      const safeAddress = params.get('safe')?.split(':')
+      if (safeAddress) {
+        setSafeAddress(safeAddress[1])
+      }
+    }
+  }, [params])
+
   const card = (
     <>
       <CardContent>
         <Box sx={{ mb: 1 }}>
           <Typography fontWeight="600">Smart-contract</Typography>
-          {pendingSafe?.safeAddress && (
+          {safeAddress && (
             <EthHashInfo
-              address={pendingSafe.safeAddress}
+              address={safeAddress}
               hasExplorer
               showCopyButton
               showName={false}
@@ -239,8 +249,6 @@ const ContractInteraction: NextPage = () => {
         sx={{
           display: 'flex',
           justifyContent: 'center',
-          alignItems: 'center',
-          flexGrow: 1,
         }}
       >
         <Card

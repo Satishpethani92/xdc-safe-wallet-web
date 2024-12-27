@@ -19,7 +19,7 @@ import React, { useState } from 'react'
 import useWallet from '@/hooks/wallets/useWallet'
 import { InfoOutlined } from '@mui/icons-material'
 import { isAddress, type JsonFragment } from 'ethers'
-import ContractFunctions from './contractFunctions'
+import ContractFunctions from '@/components/contract-interaction/ContractFunctions'
 
 const ContractInteraction: NextPage = () => {
   const [abiString, setAbiString] = useState('')

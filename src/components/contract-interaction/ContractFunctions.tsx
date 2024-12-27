@@ -2,7 +2,7 @@ import { useWeb3 } from '@/hooks/wallets/web3'
 import { ethers } from 'ethers'
 import type { JsonFragment } from 'ethers'
 import React from 'react'
-import FunctionUI from './functionUI'
+import FunctionUI from './FunctionUI'
 
 interface ContractFunctionsProps {
   abi: Array<JsonFragment>

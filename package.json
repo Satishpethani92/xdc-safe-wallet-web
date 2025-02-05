@@ -36,11 +36,7 @@
   },
   "resolutions": {
     "@walletconnect/core": "^2.11.2",
-    "@walletconnect/ethereum-provider": "^2.11.2",
-    "@safe-global/safe-core-sdk-types/**/ethers": "^6.11.1",
-    "@safe-global/protocol-kit/**/ethers": "^6.11.1",
-    "@safe-global/api-kit/**/ethers": "^6.11.1",
-    "@gnosis.pm/zodiac/**/ethers": "^6.11.1"
+    "@walletconnect/ethereum-provider": "^2.11.2"
   },
   "dependencies": {
     "@ducanh2912/next-pwa": "^9.7.1",
@@ -148,5 +144,6 @@
     "budgetPercentIncreaseRed": 20,
     "minimumChangeThreshold": 0,
     "showDetails": true
-  }
+  },
+  "packageManager": "yarn@4.5.3+sha512.3003a14012e2987072d244c720506549c1aab73ee728208f1b2580a9fd67b92d61ba6b08fe93f6dce68fd771e3af1e59a0afa28dd242dd0940d73b95fedd4e90"
 }

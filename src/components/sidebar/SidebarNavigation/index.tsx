@@ -1,4 +1,4 @@
-import React, { useMemo, type ReactElement } from 'react'
+import React, { useContext, useMemo, type ReactElement } from 'react'
 import { useRouter } from 'next/router'
 import ListItem from '@mui/material/ListItem'
 import { ImplementationVersionState } from '@safe-global/safe-gateway-typescript-sdk'
@@ -16,6 +16,12 @@ import { AppRoutes } from '@/config/routes'
 import { useQueuedTxsLength } from '@/hooks/useTxQueue'
 import { useHasFeature } from '@/hooks/useChains'
 import { FEATURES } from '@/utils/chains'
+import { TxModalContext } from '@/components/tx-flow'
+import { useTxBuilderApp } from '@/hooks/safe-apps/useTxBuilderApp'
+
+interface TxBuilderQuery {
+  appUrl?: string
+}
 
 const getSubdirectory = (pathname: string): string => {
   return pathname.split('/')[1]
@@ -27,6 +33,9 @@ const Navigation = (): ReactElement => {
   const currentSubdirectory = getSubdirectory(router.pathname)
   const queueSize = useQueuedTxsLength()
   const isSafeAppsEnabled = useHasFeature(FEATURES.SAFE_APPS)
+  const { setTxFlow } = useContext(TxModalContext)
+  const txBuilder = useTxBuilderApp()
+  const query = txBuilder?.link.query as TxBuilderQuery
 
   const enabledNavItems = useMemo(() => {
     return isSafeAppsEnabled ? navItems : navItems.filter((item) => item.href !== AppRoutes.apps.index)
@@ -63,7 +72,25 @@ const Navigation = (): ReactElement => {
           <ListItem key={item.href} disablePadding selected={isSelected}>
             <SidebarListItemButton
               selected={isSelected}
-              href={{ pathname: getRoute(item.href), query: { safe: router.query.safe } }}
+              onClick={() => {
+                if (item.href === '/contract-interaction') {
+                  setTxFlow(undefined)
+                }
+              }}
+              href={
+                item.href === '/contract-interaction'
+                  ? {
+                      pathname: txBuilder?.link.pathname,
+                      query: {
+                        safe: router.query.safe,
+                        appUrl: query?.appUrl,
+                      },
+                    }
+                  : {
+                      pathname: getRoute(item.href),
+                      query: { safe: router.query.safe },
+                    }
+              }
             >
               {item.icon && <SidebarListItemIcon badge={getBadge(item)}>{item.icon}</SidebarListItemIcon>}
 

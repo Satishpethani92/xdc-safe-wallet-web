@@ -13,6 +13,7 @@ import StakeIcon from '@/public/images/common/stake.svg'
 import EarnIcon from '@/public/images/common/earn.svg'
 import { SvgIcon } from '@mui/material'
 import { Chip } from '@/components/common/Chip'
+import CodeIcon from '@/public/images/apps/code-icon.svg'
 
 export type NavItem = {
   label: string
@@ -47,6 +48,11 @@ export const navItems: NavItem[] = [
     label: 'Apps',
     icon: <SvgIcon component={AppsIcon} inheritViewBox />,
     href: AppRoutes.apps.index,
+  },
+  {
+    label: 'Contract interaction',
+    icon: <SvgIcon component={CodeIcon} inheritViewBox />,
+    href: AppRoutes.interaction,
   },
   {
     label: 'Settings',

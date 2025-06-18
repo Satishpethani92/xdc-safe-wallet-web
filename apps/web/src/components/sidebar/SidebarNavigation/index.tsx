@@ -24,7 +24,12 @@ import { Tooltip } from '@mui/material'
 import { BRIDGE_EVENTS, BRIDGE_LABELS } from '@/services/analytics/events/bridge'
 import { EARN_EVENTS, EARN_LABELS } from '@/services/analytics/events/earn'
 import { isNonCriticalUpdate } from '@safe-global/utils/utils/chains'
+import { TxModalContext } from '@/components/tx-flow'
+import { useTxBuilderApp } from '@/hooks/safe-apps/useTxBuilderApp'
 
+interface TxBuilderQuery {
+  appUrl?: string
+}
 const getSubdirectory = (pathname: string): string => {
   return pathname.split('/')[1]
 }
@@ -53,6 +58,9 @@ const Navigation = (): ReactElement => {
   const currentSubdirectory = getSubdirectory(router.pathname)
   const queueSize = useQueuedTxsLength()
   const isBlockedCountry = useContext(GeoblockingContext)
+  const { setTxFlow } = useContext(TxModalContext)
+  const txBuilder = useTxBuilderApp()
+  const query = txBuilder?.link.query as TxBuilderQuery
 
   const visibleNavItems = useMemo(() => {
     return navItems.filter((item) => {
@@ -101,10 +109,10 @@ const Navigation = (): ReactElement => {
         const isDisabled = item.disabled || !enabledNavItems.includes(item)
         let ItemTag = item.tag ? item.tag : null
         const spaceId = router.query.spaceId
-        const query = {
+        /* const query = {
           safe: router.query.safe,
           ...(spaceId && { spaceId }),
-        }
+        } */
 
         if (item.href === AppRoutes.transactions.history) {
           ItemTag = queueSize ? <SidebarListItemCounter count={queueSize} /> : null
@@ -130,11 +138,24 @@ const Navigation = (): ReactElement => {
               >
                 <SidebarListItemButton
                   selected={isSelected}
-                  href={
-                    item.href && {
-                      pathname: getRoute(item.href),
-                      query,
+                  onClick={() => {
+                    if (item.href === '/contract-interaction') {
+                      setTxFlow(undefined)
                     }
+                  }}
+                  href={
+                    item.href === '/contract-interaction'
+                      ? {
+                          pathname: txBuilder?.link.pathname,
+                          query: {
+                            safe: router.query.safe,
+                            appUrl: query?.appUrl,
+                          },
+                        }
+                      : {
+                          pathname: getRoute(item.href),
+                          query: { safe: router.query.safe },
+                        }
                   }
                   disabled={isDisabled}
                 >

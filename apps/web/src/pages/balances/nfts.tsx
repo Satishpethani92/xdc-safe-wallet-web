@@ -57,7 +57,7 @@ const NFTs: NextPage = () => {
   return (
     <>
       <Head>
-        <title>{`${BRAND_NAME} – NFTs`}</title>
+        <title>{'XDC Safe{Wallet} – NFTs'}</title>
       </Head>
 
       <AssetsHeader />

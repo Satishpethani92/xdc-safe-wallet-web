@@ -73,7 +73,8 @@ export const RECOVERY_FEEDBACK_FORM =
 export const IS_OFFICIAL_HOST = process.env.NEXT_PUBLIC_IS_OFFICIAL_HOST === 'true'
 export const OFFICIAL_HOSTS = /app\.safe\.global|.+\.5afe\.dev|localhost:3000/
 export const IPFS_HOSTS = /\.ipfs\.dweb\.link|\.ipfs\.w3s\.link|\.ipfs\.inbrowser\.link/
-export const BRAND_NAME = process.env.NEXT_PUBLIC_BRAND_NAME || (IS_OFFICIAL_HOST ? 'Safe{Wallet}' : 'Wallet fork')
+export const BRAND_NAME =
+  process.env.NEXT_PUBLIC_BRAND_NAME || (IS_OFFICIAL_HOST ? 'XDC Safe{Wallet}' : 'XDC Safe{Wallet}')
 export const BRAND_LOGO = process.env.NEXT_PUBLIC_BRAND_LOGO || ''
 
 export const REDEFINE_ARTICLE = 'https://safe.mirror.xyz/rInLWZwD_sf7enjoFerj6FIzCYmVMGrrV8Nhg4THdwI'

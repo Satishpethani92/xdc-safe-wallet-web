@@ -11,7 +11,7 @@ const Modules: NextPage = () => {
   return (
     <>
       <Head>
-        <title>{`${BRAND_NAME} – Settings – Modules`}</title>
+        <title>{'XDC Safe{Wallet} – Settings – Modules'}</title>
       </Head>
 
       <SettingsHeader />

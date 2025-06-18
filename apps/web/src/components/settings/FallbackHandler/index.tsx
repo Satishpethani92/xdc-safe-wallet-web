@@ -57,7 +57,7 @@ export const FallbackHandler = (): ReactElement | null => {
 
   const warning = !hasFallbackHandler ? (
     <FallbackHandlerWarning
-      message={`The ${BRAND_NAME} may not work correctly as no fallback handler is currently set.`}
+      message={`The {'XDC Safe{Wallet}'} may not work correctly as no fallback handler is currently set.`}
       txBuilderLinkPrefix="It can be set via the"
     />
   ) : isTWAPFallbackHandler ? (

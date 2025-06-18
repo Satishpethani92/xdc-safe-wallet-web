@@ -22,7 +22,7 @@ const WcLogoHeader = ({ errorMessage }: { errorMessage?: string }): ReactElement
       </div>
 
       <Typography data-testid="wc-title" variant="h5" mt={2} mb={0.5} className={css.title}>
-        {errorMessage || `Connect dApps to ${BRAND_NAME}`}
+        {errorMessage || 'Connect dApps to XDC Safe{Wallet}'}
       </Typography>
     </>
   )

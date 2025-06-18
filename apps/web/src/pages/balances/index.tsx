@@ -25,7 +25,7 @@ const Balances: NextPage = () => {
   return (
     <>
       <Head>
-        <title>{`${BRAND_NAME} – Assets`}</title>
+        <title>{'XDC Safe{Wallet} – Assets'}</title>
       </Head>
 
       <AssetsHeader>

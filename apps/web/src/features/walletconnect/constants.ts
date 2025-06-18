@@ -33,7 +33,7 @@ export const SAFE_COMPATIBLE_METHODS = [
 export const SAFE_COMPATIBLE_EVENTS = ['chainChanged', 'accountsChanged']
 
 export const SAFE_WALLET_METADATA = {
-  name: BRAND_NAME,
+  name: 'XDC Safe{Wallet}',
   url: 'https://app.safe.global',
   description: 'Smart contract wallet for Ethereum',
   icons: ['https://app.safe.global/images/logo-round.svg'],

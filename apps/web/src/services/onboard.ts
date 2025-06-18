@@ -45,7 +45,7 @@ export const createOnboard = (
     appMetadata: {
       name: BRAND_NAME,
       icon: location.origin + '/images/logo-round.svg',
-      description: `${BRAND_NAME} – smart contract wallet for Ethereum (ex-Gnosis Safe multisig)`,
+      description: `${BRAND_NAME} – smart contract wallet for Xinfin`,
     },
 
     connect: {

@@ -33,7 +33,7 @@ const Appearance: NextPage = () => {
   return (
     <>
       <Head>
-        <title>{`${BRAND_NAME} – Settings – Appearance`}</title>
+        <title>{'XDC Safe{Wallet} – Settings – Appearance'}</title>
       </Head>
       <SettingsHeader />
       <main>

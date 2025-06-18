@@ -596,7 +596,7 @@ const CookiePolicy: NextPage = () => {
   return (
     <>
       <Head>
-        <title>{`${BRAND_NAME} – Cookie policy`}</title>
+        <title>{'XDC Safe{Wallet} – Cookie policy'}</title>
       </Head>
 
       <main>{isOfficialHost && <SafeCookiePolicy />}</main>

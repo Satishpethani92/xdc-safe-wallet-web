@@ -77,7 +77,7 @@ const Imprint: NextPage = () => {
   return (
     <>
       <Head>
-        <title>{`${BRAND_NAME} – Imprint`}</title>
+        <title>{'XDC Safe{Wallet} – Imprint'}</title>
       </Head>
 
       <main>{isOfficialHost && <SafeImprint />}</main>

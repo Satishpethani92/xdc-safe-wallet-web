@@ -26,7 +26,7 @@ const Messages: NextPage = () => {
   return (
     <>
       <Head>
-        <title>{`${BRAND_NAME} – Messages`}</title>
+        <title>{'XDC Safe{Wallet} – Messages'}</title>
       </Head>
 
       <TxHeader>

@@ -9,7 +9,7 @@ const Cookies: NextPage = () => {
   return (
     <>
       <Head>
-        <title>{`${BRAND_NAME} – Settings – Cookies`}</title>
+        <title>{'XDC Safe{Wallet} – Settings – Cookies'}</title>
       </Head>
 
       <SettingsHeader />

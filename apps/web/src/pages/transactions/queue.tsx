@@ -16,7 +16,7 @@ const Queue: NextPage = () => {
   return (
     <>
       <Head>
-        <title>{`${BRAND_NAME} – Transaction queue`}</title>
+        <title>{'XDC Safe{Wallet} – Transaction queue'}</title>
       </Head>
 
       <BatchExecuteHoverProvider>

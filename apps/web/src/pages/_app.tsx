@@ -117,7 +117,7 @@ const SafeWalletApp = ({
   return (
     <Provider store={reduxStore}>
       <Head>
-        <title key="default-title">{BRAND_NAME}</title>
+        <title key="default-title">{'XDC Safe{Wallet}'}</title>
         <MetaTags prefetchUrl={GATEWAY_URL} />
       </Head>
 

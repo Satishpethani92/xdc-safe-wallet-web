@@ -53,7 +53,7 @@ export const ImportFileUpload = ({
 
   return (
     <>
-      <Typography>Import {BRAND_NAME} data by uploading a file in the area below.</Typography>
+      <Typography>Import {'XDC Safe{Wallet}'} data by uploading a file in the area below.</Typography>
 
       <FileUpload
         fileType={FileTypes.JSON}
@@ -75,7 +75,7 @@ export const ImportFileUpload = ({
             mr: 0.5,
           }}
         />
-        Only JSON files exported from the {BRAND_NAME} can be imported.
+        Only JSON files exported from the {'XDC Safe{Wallet}'} can be imported.
       </Typography>
     </>
   )

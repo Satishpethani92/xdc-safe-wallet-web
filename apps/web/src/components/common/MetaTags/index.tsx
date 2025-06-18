@@ -4,7 +4,7 @@ import lightPalette from '@/components/theme/lightPalette'
 import darkPalette from '@/components/theme/darkPalette'
 
 const descriptionText = `${BRAND_NAME} is the most trusted smart account wallet on Ethereum with over $100B secured.`
-const titleText = BRAND_NAME
+const titleText = 'XDC Safe{Wallet}'
 
 const MetaTags = ({ prefetchUrl }: { prefetchUrl: string }) => (
   <>

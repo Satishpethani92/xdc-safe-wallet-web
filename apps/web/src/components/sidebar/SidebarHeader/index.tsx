@@ -33,6 +33,7 @@ import FiatValue from '@/components/common/FiatValue'
 import { useAddressResolver } from '@/hooks/useAddressResolver'
 import { NestedSafesButton } from '@/components/sidebar/NestedSafesButton'
 import { NESTED_SAFE_EVENTS, NESTED_SAFE_LABELS } from '@/services/analytics/events/nested-safes'
+import useChainId from '@/hooks/useChainId'
 
 const SafeHeader = (): ReactElement => {
   const { balances } = useVisibleBalances()
@@ -40,10 +41,13 @@ const SafeHeader = (): ReactElement => {
   const { safe } = useSafeInfo()
   const { threshold, owners } = safe
   const chain = useCurrentChain()
+  const currChainId = useChainId()
   const settings = useAppSelector(selectSettings)
   const { ens } = useAddressResolver(safeAddress)
+  const xinfinChainId = ['50', '51']
+  const addressWithPrefix = xinfinChainId.includes(currChainId) ? safeAddress.replace('0x', 'xdc') : safeAddress
 
-  const addressCopyText = settings.shortName.copy && chain ? `${chain.shortName}:${safeAddress}` : safeAddress
+  const addressCopyText = settings.shortName.copy && chain ? `${chain.shortName}:${addressWithPrefix}` : safeAddress
 
   const blockExplorerLink = chain ? getBlockExplorerLink(chain, safeAddress) : undefined
 

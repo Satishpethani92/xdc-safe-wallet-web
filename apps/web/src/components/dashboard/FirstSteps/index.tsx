@@ -27,6 +27,7 @@ import css from './styles.module.css'
 import ActivateAccountButton from '@/features/counterfactual/ActivateAccountButton'
 import { isReplayedSafeProps } from '@/features/counterfactual/utils'
 import { getExplorerLink } from '@safe-global/utils/utils/gateway'
+import useChainId from '@/hooks/useChainId'
 
 const calculateProgress = (items: boolean[]) => {
   const totalNumberOfItems = items.length
@@ -123,10 +124,13 @@ const AddFundsWidget = ({ completed }: { completed: boolean }) => {
   const [open, setOpen] = useState<boolean>(false)
   const { safeAddress } = useSafeInfo()
   const chain = useCurrentChain()
+  const currChainId = useChainId()
   const dispatch = useAppDispatch()
   const settings = useAppSelector(selectSettings)
+  const xinfinChainId = ['50', '51']
+  const addressWithPrefix = xinfinChainId.includes(currChainId) ? safeAddress.replace('0x', 'xdc') : safeAddress
   const qrPrefix = settings.shortName.qr ? `${chain?.shortName}:` : ''
-  const qrCode = `${qrPrefix}${safeAddress}`
+  const qrCode = `${qrPrefix}${addressWithPrefix}`
 
   const title = 'Add native assets'
   const content = `Receive ${chain?.nativeCurrency.name} to start interacting with your account.`

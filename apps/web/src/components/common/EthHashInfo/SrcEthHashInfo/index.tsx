@@ -138,7 +138,7 @@ const SrcEthHashInfo = ({
           {showCopyButton && (
             <CopyAddressButton
               prefix={prefix}
-              address={addressWithPrefix}
+              address={showPrefix && shouldPrefix && prefix ? addressWithPrefix : address}
               copyPrefix={shouldCopyPrefix}
               trusted={trusted}
             />

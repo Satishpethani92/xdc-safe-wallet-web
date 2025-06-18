@@ -40,6 +40,21 @@ export const navItems: NavItem[] = [
     href: AppRoutes.transactions.history,
   },
   {
+    label: 'Address book',
+    icon: <SvgIcon component={ABIcon} inheritViewBox />,
+    href: AppRoutes.addressBook,
+  },
+  {
+    label: 'Apps',
+    icon: <SvgIcon component={AppsIcon} inheritViewBox />,
+    href: AppRoutes.apps.index,
+  },
+  {
+    label: 'Settings',
+    icon: <SvgIcon data-testid="settings-nav-icon" component={SettingsIcon} inheritViewBox />,
+    href: AppRoutes.settings.setup,
+  },
+  {
     label: 'Swap',
     icon: <SvgIcon component={SwapIcon} inheritViewBox />,
     href: AppRoutes.swap,
@@ -60,6 +75,7 @@ export const navItems: NavItem[] = [
     href: AppRoutes.earn,
     tag: <Chip label="New" sx={{ backgroundColor: 'secondary.light', color: 'static.main' }} />,
   },
+<<<<<<< HEAD
   {
     label: 'Address book',
     icon: <SvgIcon component={ABIcon} inheritViewBox />,
@@ -80,6 +96,8 @@ export const navItems: NavItem[] = [
     icon: <SvgIcon data-testid="settings-nav-icon" component={SettingsIcon} inheritViewBox />,
     href: AppRoutes.settings.setup,
   },
+=======
+>>>>>>> dev
 ]
 
 export const transactionNavItems = [

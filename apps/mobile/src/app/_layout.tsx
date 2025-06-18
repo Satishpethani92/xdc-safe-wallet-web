@@ -26,6 +26,7 @@ import NotificationsService from '@/src/services/notifications/NotificationServi
 import { startNotificationExtensionSync } from '@/src/services/notifications/extensionSync'
 import { StatusBar } from 'expo-status-bar'
 import { useScreenTracking } from '@/src/hooks/useScreenTracking'
+import { useAnalytics } from '@/src/hooks/useAnalytics'
 import { DataFetchProvider } from '../theme/provider/DataFetchProvider'
 import { Platform } from 'react-native'
 
@@ -45,6 +46,7 @@ configureReanimatedLogger({
 const HooksInitializer = () => {
   useInitWeb3()
   useInitSafeCoreSDK()
+  useAnalytics() // Tracks activeSafe changes, but only once analytics is enabled in GetStarted screen
   return null
 }
 
@@ -65,9 +67,9 @@ function RootLayout() {
         <DataFetchProvider>
           <NotificationsProvider>
             <PortalProvider shouldAddRootHost>
-              <BottomSheetModalProvider>
-                <PersistGate loading={null} persistor={persistor}>
-                  <SafeThemeProvider>
+              <PersistGate loading={null} persistor={persistor}>
+                <SafeThemeProvider>
+                  <BottomSheetModalProvider>
                     <SafeToastProvider>
                       <NavigationGuardHOC>
                         <HooksInitializer />
@@ -104,6 +106,7 @@ function RootLayout() {
                           <Stack.Screen name="transaction-actions" options={{ headerShown: true, title: '' }} />
                           <Stack.Screen name="action-details" options={{ headerShown: true, title: '' }} />
                           <Stack.Screen name="address-book" options={{ headerShown: true, title: '' }} />
+                          <Stack.Screen name="contact" options={{ headerShown: true, title: '' }} />
                           <Stack.Screen name="signers" options={{ headerShown: false }} />
                           <Stack.Screen name="import-signers" options={{ headerShown: false }} />
 
@@ -177,6 +180,13 @@ function RootLayout() {
                             }}
                           />
                           <Stack.Screen
+                            name="currency"
+                            options={{
+                              headerShown: true,
+                              title: 'Currency',
+                            }}
+                          />
+                          <Stack.Screen
                             name="share"
                             options={{
                               headerShown: false,
@@ -188,9 +198,9 @@ function RootLayout() {
                         <StatusBar />
                       </NavigationGuardHOC>
                     </SafeToastProvider>
-                  </SafeThemeProvider>
-                </PersistGate>
-              </BottomSheetModalProvider>
+                  </BottomSheetModalProvider>
+                </SafeThemeProvider>
+              </PersistGate>
             </PortalProvider>
           </NotificationsProvider>
         </DataFetchProvider>

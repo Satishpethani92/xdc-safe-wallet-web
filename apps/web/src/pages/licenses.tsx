@@ -17,7 +17,7 @@ const SafeLicenses = () => (
     <Box mb={4}>
       <Typography mb={3}>
         This page contains a list of attribution notices for third party software that may be contained in portions of
-        the {'XDC Safe{Wallet}'}. We thank the open source community for all of their contributions.
+        the {'XDC Safe'}. We thank the open source community for all of their contributions.
       </Typography>
       <Typography variant="h2" mb={2}>
         Android
@@ -542,7 +542,7 @@ const Licenses: NextPage = () => {
   return (
     <>
       <Head>
-        <title>{'XDC Safe{Wallet} – Licenses'}</title>
+        <title>{'XDC Safe – Licenses'}</title>
       </Head>
 
       <main>{isOfficialHost && <SafeLicenses />}</main>

@@ -13,7 +13,14 @@ const WcConnectionState = ({ metadata, isDelete }: { metadata?: CoreTypes.Metada
   return (
     <div data-testid="wc-connection-state" className={css.container}>
       <div>
-        <SafeLogo alt="Safe logo" width="28px" height="28px" />
+        <span
+          style={{
+            fontSize: '28px',
+            fontWeight: 'bold',
+          }}
+        >
+          XDC SAFE
+        </span>
 
         <SvgIcon
           data-testid="connection-dots"

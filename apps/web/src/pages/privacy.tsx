@@ -16,7 +16,7 @@ const PrivacyPolicy: NextPage = () => {
   return (
     <>
       <Head>
-        <title>{'XDC Safe{Wallet} – Privacy policy'}</title>
+        <title>{'XDC Safe – Privacy policy'}</title>
       </Head>
 
       <main>{isOfficialHost && <SafePrivacyPolicy components={overrideComponents} />}</main>

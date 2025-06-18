@@ -8,7 +8,7 @@ const EnvironmentVariablesPage: NextPage = () => {
   return (
     <>
       <Head>
-        <title>{'XDC Safe{Wallet} – Settings – Environment variables'}</title>
+        <title>{'XDC Safe – Settings – Environment variables'}</title>
       </Head>
 
       <SettingsHeader />

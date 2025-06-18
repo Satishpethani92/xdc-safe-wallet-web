@@ -16,7 +16,7 @@ const Terms: NextPage = () => {
   return (
     <>
       <Head>
-        <title>{'XDC Safe{Wallet} – Terms'}</title>
+        <title>{'XDC Safe – Terms'}</title>
       </Head>
 
       <main>{isOfficialHost && <SafeTerms components={overrideComponents} />}</main>

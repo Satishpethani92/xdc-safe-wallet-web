@@ -305,7 +305,7 @@ export function UpsertRecoveryFlowSettings({ delayModifier }: { delayModifier?: 
           <TxCard>
             <FormControlLabel
               data-testid="warning-section"
-              label="I understand that the Recoverer will be able to initiate recovery of this Safe Account and that I will only be informed within the XDC Safe{Wallet}."
+              label="I understand that the Recoverer will be able to initiate recovery of this Safe Account and that I will only be informed within the XDC Safe."
               control={<Checkbox checked={understandsRisk} onChange={(_, checked) => setUnderstandsRisk(checked)} />}
               sx={{ pl: 2 }}
             />

@@ -30,7 +30,14 @@ const OverviewWidget = ({ safeName, networks }: { safeName: string; networks: Ch
     <Grid item xs={12}>
       <Card className={css.card}>
         <div className={css.header}>
-          <SafeLogo alt="Safe logo" width={LOGO_DIMENSIONS} height={LOGO_DIMENSIONS} />
+          <span
+            style={{
+              fontSize: '28px',
+              fontWeight: 'bold',
+            }}
+          >
+            XDC SAFE
+          </span>
           <Typography variant="h4">Your Safe Account preview</Typography>
         </div>
         {wallet ? (

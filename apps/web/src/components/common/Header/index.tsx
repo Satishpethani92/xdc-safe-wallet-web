@@ -86,7 +86,18 @@ const Header = ({ onMenuToggle, onBatchToggle }: HeaderProps): ReactElement => {
 
       <div className={classnames(css.element, css.hideMobile, css.logo)}>
         <Link href={logoHref} passHref>
-          {isOfficialHost ? <SafeLogo alt={BRAND_NAME} /> : BRAND_LOGO && <img src={BRAND_LOGO} alt={BRAND_NAME} />}
+          {isOfficialHost ? (
+            <span
+              style={{
+                fontSize: '28px',
+                fontWeight: 'bold',
+              }}
+            >
+              XDC SAFE
+            </span>
+          ) : (
+            BRAND_LOGO && <img src={BRAND_LOGO} alt={BRAND_NAME} />
+          )}
         </Link>
       </div>
 

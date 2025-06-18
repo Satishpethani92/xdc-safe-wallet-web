@@ -1,11 +1,9 @@
 import type { ReactElement, ReactNode } from 'react'
-import { SvgIcon, Typography } from '@mui/material'
-import GitHubIcon from '@mui/icons-material/GitHub'
+import { Typography } from '@mui/material'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import css from './styles.module.css'
 import { AppRoutes } from '@/config/routes'
-import packageJson from '../../../../package.json'
 import ExternalLink from '../ExternalLink'
 import MUILink from '@mui/material/Link'
 import { useIsOfficialHost } from '@/hooks/useIsOfficialHost'
@@ -76,14 +74,8 @@ const Footer = (): ReactElement | null => {
             </li>
           </>
         ) : (
-          <li>{'This is an unofficial distribution of XDC Safe{Wallet}'}</li>
+          <li>{'XDC Safe'}</li>
         )}
-
-        <li>
-          <ExternalLink href={`${packageJson.homepage}/releases/tag/v${packageJson.version}`} noIcon>
-            <SvgIcon component={GitHubIcon} inheritViewBox fontSize="inherit" sx={{ mr: 0.5 }} /> v{packageJson.version}
-          </ExternalLink>
-        </li>
       </ul>
     </footer>
   )

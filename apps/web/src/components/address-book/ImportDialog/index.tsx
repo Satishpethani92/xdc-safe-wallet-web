@@ -153,7 +153,7 @@ const ImportDialog = ({ handleClose }: { handleClose: () => void }): ReactElemen
         {error && <ErrorMessage>{error}</ErrorMessage>}
 
         <Typography>
-          Only CSV files exported from a {'XDC Safe{Wallet}'} can be imported.
+          Only CSV files exported from a {'XDC Safe'} can be imported.
           <br />
           <ExternalLink
             href={HelpCenterArticle.ADDRESS_BOOK_DATA}

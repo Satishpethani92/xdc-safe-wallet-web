@@ -7,12 +7,12 @@ import {
   sameString,
 } from '@safe-global/protocol-kit/dist/src/utils'
 import type { Eip1193Provider, JsonRpcSigner } from 'ethers'
-import { isHardwareWallet, isWalletConnect } from '@/utils/wallets'
+import { isWalletConnect } from '@/utils/wallets'
 import { OperationType, type SafeTransaction } from '@safe-global/types-kit'
 import { getChainConfig } from '@safe-global/safe-gateway-typescript-sdk'
 import { createWeb3, getWeb3ReadOnly } from '@/hooks/wallets/web3'
 import { toQuantity } from 'ethers'
-import { connectWallet, getConnectedWallet } from '@/hooks/wallets/useOnboard'
+import { getConnectedWallet } from '@/hooks/wallets/useOnboard'
 import { type OnboardAPI } from '@web3-onboard/core'
 import type { ConnectedWallet } from '@/hooks/wallets/useOnboard'
 import { UncheckedJsonRpcSigner } from '@/utils/providers/UncheckedJsonRpcSigner'
@@ -81,13 +81,6 @@ export const switchWalletChain = async (onboard: OnboardAPI, chainId: string): P
   // Onboard incorrectly returns WalletConnect's chainId, so it needs to be switched unconditionally
   if (currentWallet.chainId === chainId && !isWalletConnect(currentWallet)) {
     return currentWallet
-  }
-
-  // Hardware wallets cannot switch chains
-  if (isHardwareWallet(currentWallet)) {
-    await onboard.disconnectWallet({ label: currentWallet.label })
-    const wallets = await connectWallet(onboard, { autoSelect: currentWallet.label })
-    return wallets ? getConnectedWallet(wallets) : null
   }
 
   // Onboard doesn't update immediately and otherwise returns a stale wallet if we directly get its state

@@ -7,7 +7,7 @@ const darkPalette = {
   },
   primary: {
     dark: '#0cb259',
-    main: '#12FF80',
+    main: '#2f5cdb',
     light: '#A1A3A7',
   },
   secondary: {

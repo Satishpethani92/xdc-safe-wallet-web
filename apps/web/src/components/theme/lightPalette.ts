@@ -11,7 +11,7 @@ const lightPalette = {
   },
   secondary: {
     dark: '#0FDA6D',
-    main: '#12FF80',
+    main: '#2f5cdb',
     light: '#B0FFC9',
     background: '#EFFFF4',
   },

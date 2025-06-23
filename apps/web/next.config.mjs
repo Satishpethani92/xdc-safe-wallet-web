@@ -48,7 +48,9 @@ const withPWA = withPWAInit({
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'export', // static site export
-
+  devIndicators: {
+    buildActivity: false,
+  },
   transpilePackages: ['@safe-global/store'],
   images: {
     unoptimized: true,

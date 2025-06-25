@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "@safe-global/safe-wallet",
+  "name": "@safe-global/xdc-safe-wallet",
   "version": "1.0.1",
   "workspaces": [
     "expo-plugins/*",
